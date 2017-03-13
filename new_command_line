@@ -1,1 +1,1 @@
-hd_ana -PNTHREADS=32 -PEVIO:NTHREADS=32 -PPLUGINS=TACTest -PTHREAD_TIMEOUT=500 -PJANA:MAX_RELAUNCH_THREADS=10 /gluonraid3/data4/rawdata/active/RunPeriod-2017-01/rawdata/Run030379/hd_rawdata_030379_000.evio
+hd_ana -PNTHREADS=32 -PEVIO:NTHREADS=32 -PPLUGINS=TAC_Analysis -PTHREAD_TIMEOUT=500 -PJANA:MAX_RELAUNCH_THREADS=10 /home/hovanes/GlueX/offline/gluex_top/tac_analysis/hd_rawdata_010852_000.evio

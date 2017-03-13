@@ -1,11 +1,11 @@
 // $Id$
 //
-//    File: JEventProcessor_TACTest.cc
+//    File: JEventProcessor_TAC_Analysis.cc
 // Created: Fri Feb 26 13:00:07 EST 2016
 // Creator: zihlmann (on Linux gluon47.jlab.org 2.6.32-358.23.2.el6.x86_64 x86_64)
 //
 
-#include "JEventProcessor_TACTest.h"
+#include "JEventProcessor_TAC_Analysis.h"
 using namespace jana;
 
 // Routine used to create our JEventProcessor
@@ -14,28 +14,28 @@ using namespace jana;
 extern "C" {
 	void InitPlugin( JApplication *app ) {
 		InitJANAPlugin( app );
-		app->AddProcessor( new JEventProcessor_TACTest() );
+		app->AddProcessor( new JEventProcessor_TAC_Analysis() );
 	}
 } // "C"
 
 //------------------
-// JEventProcessor_TACTest (Constructor)
+// JEventProcessor_TAC_Analysis (Constructor)
 //------------------
-JEventProcessor_TACTest::JEventProcessor_TACTest() {
+JEventProcessor_TAC_Analysis::JEventProcessor_TAC_Analysis() {
 
 }
 
 //------------------
-// ~JEventProcessor_TACTest (Destructor)
+// ~JEventProcessor_TAC_Analysis (Destructor)
 //------------------
-JEventProcessor_TACTest::~JEventProcessor_TACTest() {
+JEventProcessor_TAC_Analysis::~JEventProcessor_TAC_Analysis() {
 
 }
 
 //------------------
 // init
 //------------------
-jerror_t JEventProcessor_TACTest::init( void ) {
+jerror_t JEventProcessor_TAC_Analysis::init( void ) {
 	// This is called once at program startup. If you are creating
 	// and filling historgrams in this plugin, you should lock the
 	// ROOT mutex like this:
@@ -64,7 +64,7 @@ jerror_t JEventProcessor_TACTest::init( void ) {
 //------------------
 // brun
 //------------------
-jerror_t JEventProcessor_TACTest::brun( JEventLoop *eventLoop, int32_t runnumber ) {
+jerror_t JEventProcessor_TAC_Analysis::brun( JEventLoop *eventLoop, int32_t runnumber ) {
 	// This is called whenever the run number changes
 
 	RunNumber = runnumber;
@@ -130,7 +130,7 @@ jerror_t JEventProcessor_TACTest::brun( JEventLoop *eventLoop, int32_t runnumber
 //------------------
 // evnt
 //------------------
-jerror_t JEventProcessor_TACTest::evnt( JEventLoop *loop, uint64_t eventnumber ) {
+jerror_t JEventProcessor_TAC_Analysis::evnt( JEventLoop *loop, uint64_t eventnumber ) {
 	// This is called for every event. Use of common resources like writing
 	// to a file or filling a histogram should be mutex protected. Using
 	// loop->Get(...) to get reconstructed objects (and thereby activating the
@@ -324,7 +324,7 @@ jerror_t JEventProcessor_TACTest::evnt( JEventLoop *loop, uint64_t eventnumber )
 //------------------
 // erun
 //------------------
-jerror_t JEventProcessor_TACTest::erun( void ) {
+jerror_t JEventProcessor_TAC_Analysis::erun( void ) {
 	// This is called whenever the run number changes, before it is
 	// changed to give you a chance to clean up before processing
 	// events from the next run number.
@@ -334,13 +334,13 @@ jerror_t JEventProcessor_TACTest::erun( void ) {
 //------------------
 // fini
 //------------------
-jerror_t JEventProcessor_TACTest::fini( void ) {
+jerror_t JEventProcessor_TAC_Analysis::fini( void ) {
 	// Called before program exit after event processing is finished.
 	WriteHistos();
 	return NOERROR;
 }
 
-jerror_t JEventProcessor_TACTest::WriteHistos( void ) {
+jerror_t JEventProcessor_TAC_Analysis::WriteHistos( void ) {
 	// Called before program exit after event processing is finished.
 	char fnam[128];
 	sprintf( fnam, "tac_run%d.root", RunNumber );

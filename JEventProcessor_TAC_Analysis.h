@@ -1,12 +1,12 @@
 // $Id$
 //
-//    File: JEventProcessor_TACTest.h
+//    File: JEventProcessor_TAC_Analysis.h
 // Created: Fri Feb 26 13:00:07 EST 2016
 // Creator: zihlmann (on Linux gluon47.jlab.org 2.6.32-358.23.2.el6.x86_64 x86_64)
 //
 
-#ifndef _JEventProcessor_TACTest_
-#define _JEventProcessor_TACTest_
+#ifndef _JEventProcessor_TAC_Analysis_
+#define _JEventProcessor_TAC_Analysis_
 
 #include <JANA/JEventProcessor.h>
 using namespace jana;
@@ -33,11 +33,11 @@ using namespace std;
 #include "TMath.h"
 #include "TCanvas.h"
 
-class JEventProcessor_TACTest:public jana::JEventProcessor{
+class JEventProcessor_TAC_Analysis:public jana::JEventProcessor{
  public:
-  JEventProcessor_TACTest();
-  ~JEventProcessor_TACTest();
-  const char* className(void){return "JEventProcessor_TACTest";}
+  JEventProcessor_TAC_Analysis();
+  ~JEventProcessor_TAC_Analysis();
+  const char* className(void){return "JEventProcessor_TAC_Analysis";}
 
   int RunNumber;
   int View;
@@ -70,5 +70,5 @@ class JEventProcessor_TACTest:public jana::JEventProcessor{
   jerror_t WriteHistos(void);
 };
 
-#endif // _JEventProcessor_TACTest_
+#endif // _JEventProcessor_TAC_Analysis_
 
