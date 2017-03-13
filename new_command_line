@@ -1,0 +1,1 @@
+hd_ana -PNTHREADS=32 -PEVIO:NTHREADS=32 -PPLUGINS=TACTest -PTHREAD_TIMEOUT=500 -PJANA:MAX_RELAUNCH_THREADS=10 /gluonraid3/data4/rawdata/active/RunPeriod-2017-01/rawdata/Run030379/hd_rawdata_030379_000.evio
