@@ -40,12 +40,12 @@ class JEventProcessor_TAC_Analysis:public jana::JEventProcessor{
   const char* className(void){return "JEventProcessor_TAC_Analysis";}
 
   int RunNumber;
-  int View;
-  TApplication *theApp;
-  TCanvas *myc;
-  TH1F *hTAC;
-  int SigAmp;
-  int SigAmpOf;
+  int View = 0;
+  TApplication *theApp = nullptr;
+  TCanvas *myc = nullptr;
+  TH1F *hTAC = nullptr;
+  int SigAmp = 0;
+  int SigAmpOf = 0;
 
   TH1F *TACAmp[4];
   TH1F *sigtime[4];
@@ -61,13 +61,13 @@ class JEventProcessor_TAC_Analysis:public jana::JEventProcessor{
 
   TH2F *TACvsM[4];
 
- private:
-  jerror_t init(void);
-  jerror_t brun(jana::JEventLoop *eventLoop, int32_t runnumber);
-  jerror_t evnt(jana::JEventLoop *eventLoop, uint64_t eventnumber);
-  jerror_t erun(void);
-  jerror_t fini(void);
-  jerror_t WriteHistos(void);
+ protected:
+  virtual jerror_t init(void);
+  virtual jerror_t brun(jana::JEventLoop *eventLoop, int32_t runnumber);
+  virtual jerror_t evnt(jana::JEventLoop *eventLoop, uint64_t eventnumber);
+  virtual jerror_t erun(void);
+  virtual jerror_t fini(void);
+  virtual jerror_t WriteHistos(void);
 };
 
 #endif // _JEventProcessor_TAC_Analysis_

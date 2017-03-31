@@ -120,6 +120,9 @@ sbms.AddDANA(env)
 sbms.AddROOT(env)
 sbms.plugin(env)
 
+sbms.AddROOTSpyMacros(env, )
+sbms.plugin(env, "TAC_Monitor" )
+
 # Make install target
 env.Alias('install', installdir)
 

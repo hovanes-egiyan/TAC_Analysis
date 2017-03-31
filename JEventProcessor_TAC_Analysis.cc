@@ -44,7 +44,12 @@ jerror_t JEventProcessor_TAC_Analysis::init( void ) {
 	//  ... fill historgrams or trees ...
 	// japp->RootUnLock();
 	//
+
 	View = 1;
+	gPARMS->SetDefaultParameter<string,int>( "TAC:VIEW_FADC_HISTO", View );
+	gPARMS->GetParameter( "TAC:VIEW_FADC_HISTO" )->GetValue( View );
+
+	cout << "Option for viewing is " << View << endl;
 
 	if ( View ) {
 		int argc = 0;
@@ -146,18 +151,16 @@ jerror_t JEventProcessor_TAC_Analysis::evnt( JEventLoop *loop, uint64_t eventnum
 	// japp->RootUnLock();
 
 	// Get First Trigger Type
-	const DL1Trigger *trig_words = NULL;
-	uint32_t trig_mask, fp_trig_mask;
+	const DL1Trigger *trig_words = nullptr;
+	uint32_t trig_mask = 0;
 	try {
 		loop->GetSingle( trig_words );
 	} catch ( ... ) {
 	};
 	if ( trig_words ) {
 		trig_mask = trig_words->trig_mask;
-		fp_trig_mask = trig_words->fp_trig_mask;
 	} else {
 		trig_mask = 0;
-		fp_trig_mask = 0;
 	}
 
 	//cout<<"Trigger mask: "<<trig_mask<<endl;
